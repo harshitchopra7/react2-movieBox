@@ -1,0 +1,40 @@
+.landingpagecontent_container {
+    height: 95vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: aqua;
+}
+.landingpagecontent_title {
+    font-size: 35px;
+    font-weight: 700;
+}
+.landingpagecontent_subtitle {
+    font-size: 28px;
+    font-weight: 500;
+    margin: 10px 0;
+}
+.landingpagecontent_description {
+    font-size: 19px;
+}
+.landingpagecontent_email_button {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+}
+.landingpagecontent_email_button > input {
+    height: 34px;
+    width: 300px;
+    background-color: whitesmoke;
+    border: none;
+}
+.landingpagecontent_email_button > button {
+    height: 37px;
+    padding: 8px 18px;
+    background-color: black;
+    color: aqua;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+}

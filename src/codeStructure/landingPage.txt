@@ -1,0 +1,11 @@
+1. Navbar
+    component -> Navbar
+    -> Logo (on the left)
+    -> Button (on the right)
+
+2. Body
+    component -> LandingPageContent
+    -> Title
+    -> Subtitle
+    -> Description
+    -> Input Field and button

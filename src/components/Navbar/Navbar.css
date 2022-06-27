@@ -1,0 +1,18 @@
+.navbar_container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 5%;
+    border-bottom: 2px solid white;
+}
+.navbar_container > img {
+    height: 50px;
+}
+.navbar_container > button {
+    background-color: black;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    color: aqua;
+    font-weight: 700;
+}
