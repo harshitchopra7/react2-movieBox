@@ -1,0 +1,39 @@
+.signinpageform_container {
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.signinpageform_form {
+    display: flex;
+    flex-direction: column;
+    background-color: aqua;
+    padding: 40px 30px;
+}
+.signinpageform_form > input, .signinpageform_form > button {
+    margin: 10px 0;
+}
+.signinpageform_form_title {
+    font-size: 28px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 15px;
+}
+.signinpageform_form > input {
+    height: 40px;
+    width: 300px;
+    padding: 0 10px;
+}
+.signinpageform_form > button {
+    height: 35px;
+    cursor: pointer;
+    font-weight: 700;
+}
+.signinpageform_form_signup_text {
+    text-align: center;
+    color: #282828;
+}
+.signinpageform_form_signup_text > span {
+    font-weight: 700;
+    color: black;
+}

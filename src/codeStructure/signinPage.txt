@@ -1,0 +1,11 @@
+1. Navbar 
+    component -> Navbar
+    -> Logo
+
+2. SignInPageForm
+    component -> SignInPageForm
+    -> Email input
+    -> Password input
+    -> Sign In button
+    -> Login as Guest User button
+    -> Text
