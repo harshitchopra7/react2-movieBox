@@ -2,6 +2,7 @@ import React from "react";
 import logo from "../../images/navbar/logo.png";
 import "./Navbar.css";
 import { useNavigate } from "react-router-dom";
+import Button from "../../global/Button/Button";
 
 function Navbar({ showSignInButton }) {
   const navigate = useNavigate();
@@ -16,7 +17,7 @@ function Navbar({ showSignInButton }) {
       {showSignInButton === false ? (
         ""
       ) : (
-        <button onClick={() => redirectTo("/sign-in")}>Sign In</button>
+          <Button text="Sign In" onClicking={() => redirectTo("/signin-signup")} />
       )}
     </div>
   );

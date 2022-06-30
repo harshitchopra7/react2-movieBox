@@ -36,4 +36,5 @@
 .signinpageform_form_signup_text > span {
     font-weight: 700;
     color: black;
+    cursor: pointer;
 }
