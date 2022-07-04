@@ -16,3 +16,7 @@
     color: aqua;
     font-weight: 700;
 }
+.navbar_inputfield > input {
+    width: 200px;
+    padding: 4px 6px;
+}

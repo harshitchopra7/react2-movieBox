@@ -1,0 +1,24 @@
+.movies_row_wrapper_container {
+    margin: 5px 0.5%;
+}
+.movies_row_wrapper {
+    display: flex;
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+.movies_row_title {
+    font-size: 26px;
+    font-weight: 700;
+    color: gray;
+    margin-bottom: 5px;
+}
+.movies_row_container {
+    margin: 2px;
+}
+.movies_row_container > img {
+    height: 250px;
+}
+.movies_row_container > img:hover {
+    transition: transform 0.5s;
+    transform: scale(1.2);
+}

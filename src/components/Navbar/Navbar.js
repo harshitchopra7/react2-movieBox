@@ -4,7 +4,7 @@ import "./Navbar.css";
 import { useNavigate } from "react-router-dom";
 import Button from "../../global/Button/Button";
 
-function Navbar({ showSignInButton }) {
+function Navbar({ showSignInButton, showInput }) {
   const navigate = useNavigate();
 
   function redirectTo(path) {
@@ -19,6 +19,7 @@ function Navbar({ showSignInButton }) {
       ) : (
           <Button text="Sign In" onClicking={() => redirectTo("/signin-signup")} />
       )}
+      {showInput && <div className="navbar_inputfield"><input placeholder="Search movies" /></div> }
     </div>
   );
 }
