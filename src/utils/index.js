@@ -1,8 +1,7 @@
-// import { useNavigate } from "react-router-dom"
-
-
-// const navigate = useNavigate()
-
-// export function redirectTo(path) {
-//     navigate(path)
-// }
+export function isArrayNonEmpty(array) {
+    if (array.length > 0) {
+      return true;
+    } else {
+      return false;
+    }
+  }

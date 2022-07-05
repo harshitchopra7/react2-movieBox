@@ -2,63 +2,45 @@ import React, { useEffect, useState } from "react";
 import Navbar from "../../components/Navbar/Navbar";
 import "./HomePage.css";
 import Row from "./Row/Row";
+import { isArrayNonEmpty } from "../../utils/index";
 
 function HomePage() {
   const API_KEY = "82372dfcea1ebf3b69159ee3abff1e56";
+  const BASE_URL = "https://api.themoviedb.org/3";
 
   const [topRatedMovies, setTopRatedMovies] = useState([]);
   const [popularMovies, setPopularMovies] = useState([]);
-  const [upcomingMovies, setUpcomingMovies] = useState([])
+  const [upcomingMovies, setUpcomingMovies] = useState([]);
 
-  // APIs
-  // Top Rated Movies
-  // "https://api.themoviedb.org/3/movie/top_rated?api_key=82372dfcea1ebf3b69159ee3abff1e56"
+  const topRatedMoviesApiUrl = `${BASE_URL}/movie/top_rated?api_key=${API_KEY}`;
+  const popularMoviesApiUrl = `${BASE_URL}/movie/popular?api_key=${API_KEY}&language=en-US&page=1`;
+  const upcomingMoviesApiUrl = `${BASE_URL}/movie/upcoming?api_key=${API_KEY}&language=en-US&page=1`;
 
-  // Popular Movies
-  // https://api.themoviedb.org/3/movie/popular?api_key=yourApiKey&language=en-US&page=1
-
-  // Now Playing
-  // https://api.themoviedb.org/3/movie/now_playing?api_key=yourApiKey&language=en-US&page=1
-
-  function fetchTopRatedMovies() {
-    fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}`)
+  function callApi(url, setData) {
+    fetch(url)
       .then((res) => res.json())
-      .then((data) => setTopRatedMovies(data.results))
-      .catch((error) => console.log(error));
-  }
-
-  function fetchPopularMovies() {
-    fetch(
-      `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US&page=1`
-    )
-      .then((res) => res.json())
-      .then((data) => setPopularMovies(data.results))
-      .catch((error) => console.log(error));
-  }
-
-  function fetchUpcomingPlayingMovies() {
-    fetch(
-      `https://api.themoviedb.org/3/movie/upcoming?api_key=${API_KEY}&language=en-US&page=1`
-    )
-      .then((res) => res.json())
-      .then((data) => setUpcomingMovies(data.results))
-      .catch((error) => console.log(error));
+      .then((data) => setData(data.results))
+      .catch((err) => console.log(err));
   }
 
   useEffect(() => {
-    fetchTopRatedMovies();
-    fetchPopularMovies();
-    fetchUpcomingPlayingMovies();
+    callApi(topRatedMoviesApiUrl, setTopRatedMovies);
+    callApi(popularMoviesApiUrl, setPopularMovies);
+    callApi(upcomingMoviesApiUrl, setUpcomingMovies);
   }, []);
-
-  fetch();
 
   return (
     <div>
       <Navbar showSignInButton={false} showInput={true} />
-      <Row rowTitle="Top Rated Movies" moviesArray={topRatedMovies} />
-      <Row rowTitle="Popular Movies" moviesArray={popularMovies} />
-      <Row rowTitle="Upcoming Movies" moviesArray={upcomingMovies} />
+      {isArrayNonEmpty(topRatedMovies) && (
+        <Row rowTitle="Top Rated Movies" moviesArray={topRatedMovies} />
+      )}
+      {isArrayNonEmpty(popularMovies) && (
+        <Row rowTitle="Popular Movies" moviesArray={popularMovies} />
+      )}
+      {isArrayNonEmpty(upcomingMovies) && (
+        <Row rowTitle="Upcoming Movies" moviesArray={upcomingMovies} />
+      )}
     </div>
   );
 }
