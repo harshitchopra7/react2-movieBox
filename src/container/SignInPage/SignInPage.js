@@ -2,11 +2,11 @@ import React, { useState } from 'react'
 import Navbar from '../../components/Navbar/Navbar'
 import SignInPageForm from '../../components/SignInPageForm/SignInPageForm'
 
-function SignInPage() {
+function SignInPage({ setUser }) {
   return (
     <div>
         <Navbar showSignInButton={false} />
-        <SignInPageForm />
+        <SignInPageForm setUser={setUser} />
     </div>
   )
 }
