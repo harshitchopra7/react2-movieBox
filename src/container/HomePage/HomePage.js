@@ -4,7 +4,7 @@ import "./HomePage.css";
 import Row from "./Row/Row";
 import { isArrayNonEmpty } from "../../utils/index";
 
-function HomePage() {
+function HomePage({ user, setUser }) {
   const API_KEY = "82372dfcea1ebf3b69159ee3abff1e56";
   const BASE_URL = "https://api.themoviedb.org/3";
 
@@ -31,7 +31,13 @@ function HomePage() {
 
   return (
     <div>
-      <Navbar showSignInButton={false} showInput={true} />
+      <Navbar
+        showSignInButton={false}
+        showInput={true}
+        user={user}
+        setUser={setUser}
+        showLogoutButton={true}
+      />
       {isArrayNonEmpty(topRatedMovies) && (
         <Row rowTitle="Top Rated Movies" moviesArray={topRatedMovies} />
       )}

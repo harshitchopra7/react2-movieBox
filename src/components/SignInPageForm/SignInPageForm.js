@@ -4,6 +4,7 @@ import Button from "../../global/Button/Button";
 import Input from "../../global/Input/Input";
 import { SIGN_IN_TEXT } from "../../constants/signInPageForm/signInPageForm";
 import { useNavigate } from "react-router-dom";
+import { auth } from "../../firebase";
 
 function SignInPageForm({ setUser }) {
   const navigate = useNavigate();
@@ -22,11 +23,21 @@ function SignInPageForm({ setUser }) {
   }
 
   function signUp() {
-    console.log("name", name)
-    console.log("email", email)
-    console.log("password", password)
-    setUser(true);
-    navigate("/");
+    auth
+      .createUserWithEmailAndPassword(email, password)
+      .then(() => {
+        setUser(true);
+        navigate("/");
+      })
+      .catch((err) => console.log(err));
+  }
+
+  function signIn() {
+    auth.signInWithEmailAndPassword(email, password)
+    .then(() => {
+      setUser(true);
+      navigate("/");
+    }).catch(err => console.log(err))
   }
 
   return (
@@ -36,9 +47,18 @@ function SignInPageForm({ setUser }) {
         <div className="signinpageform_container">
           <div className="signinpageform_form">
             <p className="signinpageform_form_title">{SIGN_IN_TEXT.SIGN_IN}</p>
-            <Input placeholder={SIGN_IN_TEXT.EMAIL} />
-            <Input placeholder={SIGN_IN_TEXT.PASSWORD} />
-            <Button text={SIGN_IN_TEXT.SIGN_IN} />
+            <input
+              placeholder={SIGN_IN_TEXT.EMAIL}
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <input
+              placeholder={SIGN_IN_TEXT.PASSWORD}
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <Button text={SIGN_IN_TEXT.SIGN_IN} onClicking={signIn} />
             <Button text={SIGN_IN_TEXT.LOGIN_AS_GUEST_USER} color="white" />
             <p className="signinpageform_form_signup_text">
               {SIGN_IN_TEXT.NEW_TO_APP}{" "}
