@@ -1,0 +1,68 @@
+// filter in js
+
+1. Eligible to Vote 
+
+const array = [10, 20, 30, 17, 19, 50, 100, 21, 7, 3, 8]
+
+const res = array.filter(eligibleToVote)
+
+function eligibleToVote(age) {
+    if (age >= 18) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+console.log(res)
+
+// output -
+[20, 30, 19, 50, 100, 21]
+
+--------------------------------------------------------------------------------------------
+
+2. Get roll numbers of those students who have joined in particular years
+
+const rollNumbers = ['1801', '1905', '1901', '1802', '2012', '2003' , '1803']
+
+const joinedInEighteen = rollNumbers.filter(value => value.includes('18'))
+const joinedInNineteen = rollNumbers.filter(value => value.includes('19'))
+const joinedInTwenty = rollNumbers.filter(value => value.includes('20'))
+
+
+console.log("Roll numbers of those who have joined in the year 2018", joinedInEighteen)
+console.log("Roll numbers of those who have joined in the year 2019", joinedInNineteen)
+console.log("Roll numbers of those who have joined in the year 2020", joinedInTwenty)
+
+// output -
+Roll numbers of those who have joined in the year 2018 (3) ['1801', '1802', '1803']
+Roll numbers of those who have joined in the year 2019 (2) ['1905', '1901']
+Roll numbers of those who have joined in the year 2020 (2) ['2012', '2003']
+
+--------------------------------------------------------------------------------------------
+
+3. Example 3
+
+const fruits = ["apple", "banana", "guava", "grapes", "mango", "mangoes"]
+
+const result = fruits.filter(value => value.includes("mango"))
+
+console.log(result)
+
+// output -
+["mango", "mangoes"]
+
+
+--------------------------------------------------------------------------------------------
+
+3. Example 4
+
+const fruits = ["apple", "banana", "guava", "grapes", "mango", "mangoes"]
+
+const result = fruits.filter(value => value.includes("apple"))
+
+console.log(result)
+
+// output -
+["apple"]
